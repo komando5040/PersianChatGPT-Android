@@ -1,0 +1,39 @@
+<ChatLayout>:
+    orientation: "vertical"
+    padding: 10
+    spacing: 10
+
+    ScrollView:
+        do_scroll_x: False
+
+        TextInput:
+            text: root.chat_text
+            readonly: True
+            size_hint_y: None
+            height: self.minimum_height
+            background_color: (0.12, 0.12, 0.12, 1)
+            foreground_color: (1, 1, 1, 1)
+            font_size: 16
+            text_size: self.width, None
+            padding: 10
+
+    BoxLayout:
+        size_hint_y: None
+        height: "55dp"
+        spacing: 5
+
+        TextInput:
+            id: user_input
+            multiline: False
+            hint_text: "پیامت را بنویس..."
+            on_text_validate:
+                root.send_message(self.text)
+                self.text = ""
+
+        Button:
+            text: "ارسال"
+            size_hint_x: None
+            width: "90dp"
+            on_press:
+                root.send_message(user_input.text)
+                user_input.text = ""
