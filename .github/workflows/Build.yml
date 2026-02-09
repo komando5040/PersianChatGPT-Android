@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
       - name: Checkout source
@@ -26,23 +26,20 @@ jobs:
             openjdk-17-jdk \
             unzip \
             zip \
-            libncurses5 \
-            libstdc++6 \
             libffi-dev \
             libssl-dev \
             autoconf \
             automake \
             libtool \
-            pkg-config
+            pkg-config \
+            zlib1g-dev \
+            libbz2-dev \
+            libreadline-dev
 
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
           pip install cython buildozer
-
-      - name: Initialize Buildozer
-        run: |
-          buildozer init || true
 
       - name: Build Android APK
         run: |
