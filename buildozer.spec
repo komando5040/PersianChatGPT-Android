@@ -4,13 +4,14 @@ title = PersianChatGPT-Android
 package.name = persianchatgpt
 package.domain = ir.example
 
+version = 1.0.0
+
 source.dir = .
 source.include_exts = py,kv
 
 requirements = python3,kivy
 
 orientation = portrait
-
 fullscreen = 0
 
 android.permissions = INTERNET
